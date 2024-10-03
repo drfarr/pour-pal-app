@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "prepare": "husky",
     "docker:build": "docker build -t pour-pal-app .",
-    "docker:run": "docker run -p 8080:80 pour-pal-app"
+    "docker:run": "docker run -p 8080:80 pour-pal-app",
+    "test": "echo \"Error: no test specified\""
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
