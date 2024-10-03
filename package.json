@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker:build": "docker build -t pour-pal-app .",
+    "docker:run": "docker run -p 8080:80 pour-pal-app"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
