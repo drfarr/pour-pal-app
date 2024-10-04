@@ -4,3 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+
+.instructions {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  overflow: hidden;
+  white-space: nowrap;
+}
