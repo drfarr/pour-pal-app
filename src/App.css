@@ -11,3 +11,18 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}

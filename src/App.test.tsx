@@ -2,14 +2,13 @@ import { describe, it } from "vitest";
 import { render, waitForElementToBeRemoved } from "@testing-library/react";
 
 import App from "./App";
+import site from "./utils/config";
 
 describe("App", () => {
   it("Displays the title and description of the app", () => {
     const { getByTestId, getByRole } = render(<App />);
-    expect(getByRole("heading")).toHaveTextContent("Pour Pal 🍹");
-    expect(getByTestId("app-description")).toHaveTextContent(
-      "Mix the perfect drink anytime with your cocktail companion; Pour Pal!",
-    );
+    expect(getByRole("heading")).toHaveTextContent(site.name);
+    expect(getByTestId("app-description")).toHaveTextContent(site.description);
   });
   it("Displays a loading state while drinks are loading", () => {
     const { getByRole } = render(<App />);

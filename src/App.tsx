@@ -2,19 +2,18 @@ import "./App.css";
 import { ErrorBoundary } from "react-error-boundary";
 
 import useCocktails from "./hooks/useCocktails";
+import site from "./utils/config";
 
 function App() {
   const { loading, data } = useCocktails();
 
   return (
     <>
-      <header>
+      <header id="header">
         <h1 role="heading" aria-level={1}>
-          Pour Pal 🍹
+          {site.name}
         </h1>
-        <i data-testid="app-description">
-          Mix the perfect drink anytime with your cocktail companion; Pour Pal!
-        </i>
+        <b data-testid="app-description">{site.description}</b>
       </header>
       <main id="main" role="main">
         <ErrorBoundary fallback={<div>Something went wrong</div>}>
@@ -25,9 +24,10 @@ function App() {
               </div>
             )}
             {data && (
-              <ul data-testid="cocktails" aria-label="list">
+              <ul data-testid="cocktails" aria-label="list" className="items">
                 {data.map((cocktail) => (
                   <li
+                    className="item"
                     aria-label="listitem"
                     data-testid="cocktail"
                     key={cocktail.idDrink}
@@ -47,6 +47,9 @@ function App() {
                     <p className="instructions" data-testid="instructions">
                       {cocktail.strInstructions}
                     </p>
+                    <a href="" data-testid="link">
+                      Drink This
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -55,7 +58,7 @@ function App() {
         </ErrorBoundary>
       </main>
       <footer>
-        <p>© {new Date().getFullYear()} Pourous Pals 🥂</p>
+        <p>Made with 🤪🍻 © {new Date().getFullYear()} Pourous Pals 🥂</p>
       </footer>
     </>
   );
