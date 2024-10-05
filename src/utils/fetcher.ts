@@ -6,7 +6,6 @@ export /**
  */
 const fetcher = (url: string) => {
   return fetch(url).then((res) => {
-    console.log(res);
     if (!res.ok) {
       throw new Error("An error occurred while fetching the data.");
     }

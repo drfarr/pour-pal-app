@@ -2,7 +2,7 @@
 import { word, uuid, date } from "minifaker";
 import { getDrinksUrl, getDrinkUrl } from "@/utils/config";
 import "minifaker/locales/en";
-import { delay, http, HttpResponse } from "msw";
+import { http, HttpResponse } from "msw";
 
 /**
  * Generate a rando§m string of words.

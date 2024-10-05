@@ -14,11 +14,11 @@ const root = createRoot(document.getElementById("root") as HTMLElement);
  *
  */
 async function shouldMock() {
-  // if (Boolean(process.env.NODE_ENV === "test")) {
-  const worker = await import("./__tests__/mocks/worker");
-  console.log(worker.serviceWorker.listHandlers());
-  return worker.serviceWorker.start();
-  // }
+  if (Boolean(process.env.NODE_ENV === "test")) {
+    const worker = await import("./__tests__/mocks/worker");
+    console.log(worker.serviceWorker.listHandlers());
+    return worker.serviceWorker.start();
+  }
 }
 
 shouldMock().then(() => {

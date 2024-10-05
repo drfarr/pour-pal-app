@@ -9,7 +9,7 @@ export const getIngredientsWithMeasures = (data: Cocktail | null) => {
   if (data) {
     return Object.entries(data)
       .filter(([key, value]) => key.includes("Ingredient") && value)
-      .map(([key, value], idx) => {
+      .map(([, value], idx) => {
         const measureKey = `strMeasure${idx + 1}` as keyof Cocktail;
         const measure = data[measureKey] ? data[measureKey] : "";
         return `${measure} ${value}`;

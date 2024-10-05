@@ -43,6 +43,7 @@ export default function useDrinks({ id }: { id?: string }): {
   if (parsedData.success) {
     data = parsedData.data.drinks;
   } else {
+    // Not the coolest but will need to discuss this scenario..
     console.error(parsedData.error);
   }
 

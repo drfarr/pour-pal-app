@@ -21,7 +21,7 @@ on:
       - main
 
 jobs:
-  test-build-deploy:
+  build-test-deploy:
     runs-on: ubuntu-latest
     environment: live
     steps:
