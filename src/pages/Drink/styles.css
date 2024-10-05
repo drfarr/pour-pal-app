@@ -1,0 +1,37 @@
+.drink {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drink .title {
+  z-index: 10;
+  position: relative;
+}
+
+.drink .button {
+  float: left;
+}
+
+.drink .item {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.drink .item div {
+  width: 50%;
+}
+
+.drink .item > div:nth-child(2) {
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+  .drink .item {
+    flex-direction: column;
+  }
+  .drink .item div {
+    width: 100%;
+  }
+}

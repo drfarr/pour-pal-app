@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const cocktailSchema = z.object({
-  idDrink: z.string().nullish(),
+  idDrink: z.string(),
   strDrink: z.string().nullish(),
   strDrinkAlternate: z.string().nullish(),
   strTags: z.string().nullish(),

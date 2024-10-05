@@ -1,0 +1,35 @@
+@keyframes shimmer {
+  from {
+    background-position: -1000px 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-skeleton {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.skeleton {
+  animation: shimmer 3s;
+  opacity: 0.4;
+  animation-iteration-count: infinite;
+  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  background-size: 1000px 100%;
+  height: 300px;
+  border-radius: 2rem;
+}
+
+.skeleton.third {
+  width: 30%;
+}
+
+.skeleton.half {
+  width: 48%;
+}

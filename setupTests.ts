@@ -3,12 +3,7 @@ import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/vitest";
 
 import { afterAll, afterEach, beforeAll } from "vitest";
-import { setupServer } from "msw/node";
-
-import { handlers } from "./src/mocks/handlers";
-
-const server = setupServer(...handlers);
-
+import server from "./src/__tests__/mocks/server";
 // Start server before all tests
 beforeAll(() => server.listen({ onUnhandledRequest: "error" }));
 

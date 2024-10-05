@@ -1,20 +1,41 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
+import { fetcher } from "@/utils/fetcher";
+import App from "@/App.tsx";
 
-async function enableMocking() {
-  if (Boolean(process.env.NODE_ENV === "test")) {
-    const worker = await import("./mocks/worker");
-    console.log(worker.serviceWorker.listHandlers());
-    return worker.serviceWorker.start();
-  }
+import { ErrorBoundary } from "react-error-boundary";
+import { SWRConfig } from "swr";
+import "./index.css";
+import Loader from "./components/Loader";
+const root = createRoot(document.getElementById("root") as HTMLElement);
+
+/**
+ *
+ *
+ */
+async function shouldMock() {
+  // if (Boolean(process.env.NODE_ENV === "test")) {
+  const worker = await import("./__tests__/mocks/worker");
+  console.log(worker.serviceWorker.listHandlers());
+  return worker.serviceWorker.start();
+  // }
 }
 
-enableMocking().then(() => {
-  return createRoot(document.getElementById("root")!).render(
+shouldMock().then(() => {
+  return root.render(
     <StrictMode>
-      <App />
+      <ErrorBoundary fallback={<h1>Something went wrong :(</h1>}>
+        <Suspense fallback={<Loader />}>
+          <SWRConfig
+            value={{
+              fetcher,
+              suspense: true,
+            }}
+          >
+            <App />
+          </SWRConfig>
+        </Suspense>
+      </ErrorBoundary>
     </StrictMode>,
   );
 });

@@ -4,25 +4,91 @@
   padding: 2rem;
   text-align: center;
 }
+h1.heading {
+  font-size: 3em;
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-senary);
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image: linear-gradient(
+      135deg,
+      var(--color-tertiary) 25%,
+      transparent 25%
+    ),
+    linear-gradient(225deg, var(--color-tertiary) 25%, transparent 25%),
+    linear-gradient(45deg, var(--color-tertiary) 25%, transparent 25%),
+    linear-gradient(315deg, var(--color-tertiary) 25%, #e5e5f7 25%);
+  background-position:
+    10px 0,
+    10px 0,
+    0 0,
+    0 0;
+  background-size: 20px 20px;
+  background-repeat: repeat;
+}
 
-.instructions {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  overflow: hidden;
-  white-space: nowrap;
+.container {
+  background-color: white;
+  border-radius: 2rem;
+  width: 80vw;
+
+  padding: 2em;
+  min-height: 70vh;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1em;
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
 .items {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.item {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 0.5rem;
+.item .title {
+  text-decoration: wavy underline;
+}
+
+.item img {
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.button {
+  border-radius: 2rem;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  border: 1px solid var(--color-quaternary);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.item:hover .button,
+.button:hover {
+  border: 1px solid var(--color-quinary);
+  background-color: var(--color-quinary);
+  color: white;
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
