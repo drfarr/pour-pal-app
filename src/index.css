@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+Cherokee:wght@100..900&display=swap");
 
+html {
+  position: relative;
+}
 :root {
   font-family: "Noto Sans Cherokee", system-ui, Avenir, Helvetica, Arial,
     sans-serif;
